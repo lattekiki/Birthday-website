@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Nuhamin! 💖</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background-color: #FEE7F2; /* Soft background fallback */
+        }
+        /* Custom styles to match the mockup aesthetic (pastel pinks, glows, circles) */
+        .app-container {
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1555513511-b8d9609c2a3e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Placeholder image for light texture */
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+        }
+        /* Sidebar styling for semi-transparent pink */
+        .sidebar {
+            background-color: rgba(255, 230, 240, 0.95); /* Soft pink */
+            border-right: 4px solid #F687B3; /* Deep pink accent */
+        }
+        /* Main content card styling */
+        .main-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.2); /* Pink shadow for glow effect */
+        }
+        /* Glowing circular photo frame for Nuhamin */
+        .glowing-frame {
+            border-radius: 50%;
+            border: 5px solid #F687B3; /* Deep pink border */
+            box-shadow: 0 0 15px 5px #F687B3; /* Intense pink glow */
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+        /* Heart-shaped container (using Tailwind for easy shape/color) */
+        .heart-frame {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            background-color: #FECACA; /* Red-100/Pink */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Custom image styling within the heart/card */
+        .cew-image {
+            border-radius: 12px;
+            border: 3px solid #F687B3;
+        }
+        /* Game specific styles (kept for confetti keyframes) */
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #F687B3;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Custom radio button styling */
+        .radio-option {
+            cursor: pointer;
+            padding: 8px 12px;
+            background-color: white;
+            border: 1px solid #FBCFE8; /* Pink-200 */
+            border-radius: 8px;
+            transition: background-color 0.15s, border-color 0.15s;
+        }
+        .radio-option:hover {
+            background-color: #FCE7F6; /* Pink-100 */
+            border-color: #F9A8D4; /* Pink-300 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar (Left Column) -->
+    <div id="sidebar" class="sidebar w-full md:w-1/4 p-6 sticky top-0 h-full overflow-y-auto">
+        <h2 class="text-xl font-bold mb-4 text-pink-600">💖 Nuhamin's Corner 💖</h2>
+        
+        <!-- Nuhamin's Stats Section -->
+        <div class="mb-6 p-4 bg-pink-100 rounded-xl">
+            <h3 class="font-semibold text-lg mb-2 text-pink-700">Nuhamin's Stats <span class="text-sm">🧪</span></h3>
+            <ul class="text-gray-700 space-y-1 text-sm">
+                <li class="flex justify-between"><span>Favorite Drama:</span> <span class="font-medium text-pink-600">Lovely Runner</span></li>
+                <li class="flex justify-between"><span>Bias:</span> <span class="font-medium text-pink-600">Cha Eunwoo</span></li>
+                <li class="flex justify-between"><span>Career Goal:</span> <span class="font-medium text-pink-600">Pharmacist</span></li>
+                <li class="flex justify-between"><span>Current Project:</span> <span class="font-medium text-pink-600">Birthday Queen!</span></li>
+            </ul>
+        </div>
+
+        <div class="border-t border-pink-300 pt-4">
+            <h3 class="font-semibold text-lg mb-3 text-pink-700">Personalize</h3>
+            
+            <!-- Custom Photo Upload Button -->
+            <label for="nuhamin-photo-upload" class="flex items-center justify-center p-3 bg-pink-500 hover:bg-pink-600 text-white rounded-xl cursor-pointer shadow-lg transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                </svg>
+                Upload Your Photo
+            </label>
+            <input type="file" id="nuhamin-photo-upload" class="hidden" accept="image/*" onchange="previewFile()">
+        </div>
+
+        <!-- Dedication Message -->
+        <div class="mt-8 text-center text-sm text-pink-800">
+            <p>This app is dedicated to Nuhamin.</p>
+            <p class="font-semibold">Designed with 💖 by a Fellow AROHA.</p>
+        </div>
+    </div>
+
+    <!-- Main Content (Right Column) -->
+    <main class="w-full md:w-3/4 p-8">
+        
+        <!-- Main Title and Nuhamin's Photo -->
+        <div class="main-card p-6 md:p-10 rounded-3xl mb-8 text-center">
+            
+            <!-- Nuhamin's Photo Frame -->
+            <img id="nuhamin-photo" class="glowing-frame inline-block" 
+                 src="https://placehold.co/200x200/F0F8FF/FF69B4?text=Nuhamin's%0APhoto" 
+                 alt="Nuhamin's Photo Placeholder">
+            <p class="mt-4 text-xl font-semibold text-pink-600">Celebrating Nuhamin!</p>
+            
+            <h1 class="text-4xl md:text-5xl font-extrabold mt-6 text-pink-700">
+                🥳 Happy Birthday, Queen! 👑
+            </h1>
+            <p class="text-xl mt-2 text-gray-600">Your Special K-Drama Celebrity Edition</p>
+        </div>
+
+        <!-- Birthday Message -->
+        <div class="main-card p-6 md:p-8 rounded-3xl mb-8">
+            <p class="text-lg leading-relaxed text-gray-800 border-l-4 border-pink-500 pl-4 bg-pink-50 p-4 rounded-lg">
+        🎬✨
+        Dearest Nuhamin!
+     Your life is the ultimate K-Drama in the making — full of beauty, passion, and plot twists we didn't see coming!
+     Wishing you a magical birthday filled with all the thrill of a finale cliffhanger and the warmth of a perfect happy ending. 💖
+     May your next episode be even more fabulous than the last!   
+  
+            </p>
+        </div>
+
+        <!-- Celebrity Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            
+            <!-- Cha Eunwoo Section (Heart Frame) -->
+            <div class="main-card p-6 rounded-3xl text-center">
+                <h3 class="text-2xl font-bold mb-4 text-pink-700">Cha Eunwoo's Greeting</h3>
+                <div class="flex justify-center">
+                    <img class="cew-image w-64 h-auto" 
+                         src="https://i.pinimg.com/1200x/44/a4/b9/44a4b9995cb3c4266a3e806bf699b3cb.jpg" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/250x300/FEE7F2/E91E63?text=Cha+Eunwoo+Image';"
+                         alt="Cha Eunwoo holding a rose">
+                </div>
+                <p class="mt-4 text-gray-600 italic">"May your day be as dazzling as your favorite K-Drama OST!" - C.E.W.</p>
+            </div>
+
+            <!-- Byun Wooseok Section (Interactive Card) -->
+            <div class="main-card p-6 rounded-3xl text-center">
+                <h3 class="text-2xl font-bold mb-4 text-pink-700">Dream K-Drama Co-Star: Byun Wooseok</h3>
+                <img class="cew-image w-64 h-auto" 
+                     src="https://i.pinimg.com/736x/59/e2/80/59e28084538d8d15397223aac6baf96d.jpg" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/250x300/FEE7F2/E91E63?text=Byun+Wooseok+Image';"
+                     alt="Byun Wooseok smiling">
+                <p class="mt-4 text-gray-600 italic">"I'm here for the cake! Happy Birthday, Nuhamin!" - B.W.S.</p>
+            </div>
+
+        </div>
+        
+        <!-- Nuhamin's Age Guess Challenge -->
+        <div class="main-card p-6 md:p-8 rounded-3xl mb-8">
+            <h3 class="text-2xl font-bold mb-4 text-pink-700">🔮 Nuhamin's Personalized Quiz Challenge 🎂</h3>
+            <p class="mb-4 text-gray-600">Answer these 5 personalized questions to unlock the big reveal!</p>
+            
+            <div id="age-quiz-container" class="space-y-4">
+                
+                <!-- Question 1: Favorite Actor -->
+                <div class="bg-pink-50 p-4 rounded-xl shadow-md">
+                    <p class="font-semibold text-pink-600 mb-2">Q1. Who is your favorite actor (Baek Hyun Woo or Sunjae)?</p>
+                    <div class="flex space-x-4 mt-2">
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q1" value="baek_hyun_woo" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">Baek Hyun Woo</span>
+                        </label>
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q1" value="sunjae" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">Sunjae</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 2: Favorite Drink -->
+                <div class="bg-pink-50 p-4 rounded-xl shadow-md">
+                    <p class="font-semibold text-pink-600 mb-2">Q2. What is your favorite drink (KK or Max)?</p>
+                    <div class="flex space-x-4 mt-2">
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q2" value="KK" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">KK</span>
+                        </label>
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q2" value="Max" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">Max</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 3: Favorite Person -->
+                <div class="bg-pink-50 p-4 rounded-xl shadow-md">
+                    <p class="font-semibold text-pink-600 mb-2">Q3. Who is your favorite person (Cristian or Abi)?</p>
+                    <div class="flex space-x-4 mt-2">
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q3" value="cristian" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">Cristian</span>
+                        </label>
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q3" value="abi" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">Abi</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 4: Go-to Vibe -->
+                <div class="bg-pink-50 p-4 rounded-xl shadow-md">
+                    <p class="font-semibold text-pink-600 mb-2">Q4. What is your go-to vibe (feminine or tomboy)?</p>
+                    <div class="flex space-x-4 mt-2">
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q4" value="feminine" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">Feminine</span>
+                        </label>
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q4" value="tomboy" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">Tomboy</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 5: Rewatch Drama -->
+                <div class="bg-pink-50 p-4 rounded-xl shadow-md">
+                    <p class="font-semibold text-pink-600 mb-2">Q5. What drama would you watch again (True Beauty or Lovely Runner)?</p>
+                    <div class="flex space-x-4 mt-2">
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q5" value="True_Beauty" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">True Beauty</span>
+                        </label>
+                        <label class="inline-flex items-center radio-option">
+                            <input type="radio" class="form-radio text-pink-500" name="q5" value="Lovely_Runner" onchange="checkAllAnswers()">
+                            <span class="ml-2 text-gray-700 font-medium">Lovely Runner</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Result display area - now automatically triggered -->
+            <div id="age-guess-result" class="mt-6 p-4 bg-yellow-100 rounded-xl text-center text-xl font-bold text-yellow-800">
+                Answer the 5 personalized questions above to reveal the age!
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script>
+    // --- Age Guess Game Logic (Updated to auto-reveal) ---
+    const correctAge = 20;
+
+    function checkAllAnswers() {
+        const resultDiv = document.getElementById('age-guess-result');
+        
+        // Check if all 5 radio button groups have a selected value
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        const q3 = document.querySelector('input[name="q3"]:checked');
+        const q4 = document.querySelector('input[name="q4"]:checked');
+        const q5 = document.querySelector('input[name="q5"]:checked');
+
+        if (q1 && q2 && q3 && q4 && q5) {
+            // All 5 questions are answered, perform the reveal!
+            resultDiv.className = 'mt-6 p-4 bg-green-200 rounded-xl text-center text-3xl font-extrabold text-green-700 shadow-2xl animate-pulse';
+            resultDiv.innerHTML = `
+                <span class="text-pink-600">🎉 THE BIG REVEAL! 🎉</span><br>
+                Nuhamin is celebrating her amazing **${correctAge}**!<br>
+                <span class="text-2xl font-semibold">Happy Birthday!</span>
+            `;
+            // Optional: Disable all radio buttons after the reveal
+            document.querySelectorAll('#age-quiz-container input').forEach(input => input.disabled = true);
+            triggerConfetti();
+        } else {
+             // If not all answered, keep the initial instruction/prompt
+            resultDiv.className = 'mt-6 p-4 bg-yellow-100 rounded-xl text-center text-xl font-bold text-yellow-800';
+            resultDiv.textContent = 'Keep answering the 5 personalized questions above to reveal the age!';
+        }
+    }
+
+    // --- File Upload Logic ---
+    function previewFile() {
+        const preview = document.getElementById('nuhamin-photo');
+        const file = document.getElementById('nuhamin-photo-upload').files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                preview.src = reader.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // --- Confetti Animation ---
+    function triggerConfetti() {
+        const confettiContainer = document.createElement('div');
+        confettiContainer.className = 'fixed inset-0 pointer-events-none z-50';
+        document.body.appendChild(confettiContainer);
+        
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'absolute w-2 h-2 rounded-full opacity-0';
+            particle.style.backgroundColor = ['#FF69B4', '#F8BBD0', '#E91E63', '#B3E5FC'][Math.floor(Math.random() * 4)];
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.animation = `confetti-fall ${Math.random() * 3 + 2}s ease-in forwards`;
+            confettiContainer.appendChild(particle);
+        }
+        
+        setTimeout(() => {
+            confettiContainer.remove();
+        }, 5000);
+        
+        if (!document.getElementById('confetti-keyframes')) {
+            const style = document.createElement('style');
+            style.id = 'confetti-keyframes';
+            style.innerHTML = `
+                @keyframes confetti-fall {
+                    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
